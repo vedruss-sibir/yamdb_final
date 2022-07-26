@@ -11,17 +11,27 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import AccessToken
 
 from api_yamdb.settings import DEFAULT_FROM_EMAIL
+
 from reviews.models import Category, Genre, Review, Title
 from users.models import User
 from .filitres import TitleFilter
 from .mixins import CreateListDestroyViewSet
-from .permissions import (IsAdmin, IsAdminOrReadOnly,
-                          IsAuthorModeratorAdminOrReadOnly)
-from .serializers import (CategorySerializer, CommentSerializer,
-                          CreateTokenSerializer, GenreSerializer,
-                          RegistrationSerializer, ReviewSerializer,
-                          TitlePostSerializer, TitlesSerializer,
-                          UserSerializer)
+from .permissions import (
+    IsAdmin,
+    IsAdminOrReadOnly,
+    IsAuthorModeratorAdminOrReadOnly,
+)
+from .serializers import (
+    CategorySerializer,
+    CommentSerializer,
+    CreateTokenSerializer,
+    GenreSerializer,
+    RegistrationSerializer,
+    ReviewSerializer,
+    TitlePostSerializer,
+    TitlesSerializer,
+    UserSerializer,
+)
 
 
 class UsersViewSet(viewsets.ModelViewSet):
@@ -46,9 +56,7 @@ class UsersViewSet(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_200_OK)
         if request.method == "PATCH":
             serializer = self.get_serializer(
-                user,
-                data=request.data,
-                partial=True
+                user, data=request.data, partial=True
             )
             serializer.is_valid(raise_exception=True)
             serializer.save(role=user.role)
@@ -131,10 +139,13 @@ class TitlesViewSet(viewsets.ModelViewSet):
         return TitlePostSerializer
 
     def get_queryset(self):
-        if self.action in ('list', 'retrieve'):
-            queryset = (Title.objects.prefetch_related('reviews').all().
-                        annotate(rating=Avg('reviews__score')).
-                        order_by('name'))
+        if self.action in ("list", "retrieve"):
+            queryset = (
+                Title.objects.prefetch_related("reviews")
+                .all()
+                .annotate(rating=Avg("reviews__score"))
+                .order_by("name")
+            )
             return queryset
         return Title.objects.all()
 

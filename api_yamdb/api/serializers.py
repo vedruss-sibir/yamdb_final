@@ -1,6 +1,5 @@
 from django.utils import timezone
 from rest_framework import serializers
-
 from reviews.models import Category, Comment, Genre, Review, Title
 from users.models import User
 
@@ -39,7 +38,7 @@ class TitlePostSerializer(serializers.ModelSerializer):
     def validate_year(self, value):
         if not (0 < value <= timezone.now().year):
             raise serializers.ValidationError(
-                'Год произведения не может быть из будущего'
+                "Год произведения не может быть из будущего"
             )
         return value
 
@@ -88,7 +87,7 @@ class ReviewSerializer(serializers.ModelSerializer):
     def validate_score(self, value):
         if not 1 <= value <= 10:
             raise serializers.ValidationError(
-                'Оценку можно поставить только от 1 до 10'
+                "Оценку можно поставить только от 1 до 10"
             )
         return value
 

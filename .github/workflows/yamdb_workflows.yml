@@ -60,8 +60,7 @@ jobs:
           script: |
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/yamdb_final
             sudo docker-compose stop
-            sudo docker-compose rm web
-            rm .env
+            sudo docker-compose rm web    
             touch .env
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
             echo DB_NAME=${{ secrets.DB_NAME }} >> .env
@@ -71,8 +70,6 @@ jobs:
             echo DB_PORT=${{ secrets.DB_PORT }} >> .env
             echo SECRET=${{ secrets.SECRET }} >> .env
             sudo docker-compose up -d
-            sudo docker-compose exec -T web cd api_yamdb
-            sudo docker-compose exec -T web python manage.py migrate
             
             
   send_message:

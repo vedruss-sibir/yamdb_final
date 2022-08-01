@@ -61,6 +61,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "api_yamdb.wsgi.application"
 
+DATABASE_URL = "postgres://postgres@postgres:5432/postgres"
+
 DATABASES = {
     "default": {
         "ENGINE": os.getenv(

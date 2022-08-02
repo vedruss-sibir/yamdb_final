@@ -13,7 +13,7 @@ SECRET_KEY = os.getenv(
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["51.250.108.41", "localhost"]
+ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "users.apps.UsersConfig",
@@ -60,8 +60,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "api_yamdb.wsgi.application"
-
-DATABASE_URL = "postgres://postgres@postgres:5432/postgres"
 
 DATABASES = {
     "default": {

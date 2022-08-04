@@ -54,20 +54,58 @@ CI и CD проекта api_yamdb
   - Ресурс comments: комментарии к отзывам. Комментарий привязан к определённому отзыву.
 -
 
-- ### База данных
+- ### В репозитории на Гитхабе добавьте данные в Settings - Secrets - Actions secrets
 
-  - В репозитории с заданием, в директории /api_yamdb/static/data, подготовлены несколько файлов в формате csv с контентом для ресурсов Users, Titles, Categories, Genres, Review и Comments.
-  - Для тестирования работы проекта можно наполнить БД данным контентом из приложенных csv-файлов.
-  - Процедура импорта из CSV - на усмотрение исполнителя.
+DOCKER_USERNAME - имя пользователя в DockerHub
+DOCKER_PASSWORD - пароль пользователя в DockerHub
+HOST - ip-адрес сервера
+USER - пользователь
+SSH_KEY - приватный ssh-ключ (публичный должен быть на сервере)
+PASSPHRASE - кодовая фраза для ssh-ключа
+DB_ENGINE - django.db.backends.postgresql
+DB_HOST - db
+DB_PORT - 5432
+SECRET_KEY - секретный ключ приложения django (необходимо чтобы были экранированы или отсутствовали скобки)
+ALLOWED_HOSTS - список разрешённых адресов
+TELEGRAM_TO - id своего телеграм-аккаунта (можно узнать у @userinfobot, команда /start)
+TELEGRAM_TOKEN - токен бота (получить токен можно у @BotFather, /token, имя бота)
+DB_NAME - postgres (по умолчанию)
+POSTGRES_USER - postgres (по умолчанию)
+POSTGRES_PASSWORD - postgres (по умолчанию)
 
 ---
 
-## Как запустить проект
+## Как запустить проект на сервере
+
+Установите Docker и Docker-compose:
+
+sudo apt install docker.io
+sudo apt install docker-compose
+
+Проверьте корректность установки Docker-compose:
+
+sudo  docker-compose --version
+Создайте папку nginx:
+
+mkdir nginx
+После успешного деплоя:
+Соберите статические файлы (статику):
+
+docker-compose exec web python manage.py collectstatic --no-input
+Примените миграции:
+
+docker-compose exec web python manage.py makemigrations
+docker-compose exec web python manage.py migrate --noinput
+Создайте суперпользователя:
+
+docker-compose exec web python manage.py createsuperuser
 
 Проект развернут на сервере и доступен по адресу:
 
 ```
-http://51.250.108.41:80
+http://51.250.108.41/admin
+http://51.250.108.41/redoc
+
 
 
 ## Над проектом работал

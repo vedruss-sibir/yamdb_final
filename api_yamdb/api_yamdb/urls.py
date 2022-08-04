@@ -20,8 +20,6 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("api/", include("api.urls")),
     url(
         r"^swagger(?P<format>\.json|\.yaml)$",
         schema_view.without_ui(cache_timeout=0),
@@ -32,5 +30,27 @@ urlpatterns = [
         schema_view.with_ui("swagger", cache_timeout=0),
         name="schema-swagger-ui",
     ),
-    path("redoc/", TemplateView.as_view(template_name="static/redoc.html")),
+    url(
+        r"^redoc/$",
+        schema_view.with_ui("redoc", cache_timeout=0),
+        name="schema-redoc",
+    ),
+]
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="Cats API",
+        default_version="v1",
+        description="Документация для приложения api_yamdb проекта yamdb_final",
+        # terms_of_service="URL страницы с пользовательским соглашением",
+        contact=openapi.Contact(email="andre33_3@rambler.ru"),
+        license=openapi.License(name="BSD License"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("api/", include("api.urls")),
 ]

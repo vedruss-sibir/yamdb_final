@@ -73,9 +73,9 @@ CI и CD проекта api_yamdb
    POSTGRES_USER - postgres (по умолчанию)
    POSTGRES_PASSWORD - postgres (по умолчанию)
 
----
+-
 
-## Как запустить проект на сервере
+- ## Как запустить проект на сервере
 
 Установите Docker и Docker-compose:
 
@@ -106,6 +106,7 @@ docker-compose exec web python manage.py createsuperuser
 http://51.250.108.41/admin
 http://51.250.108.41/redoc
 
+-
 
 
 ## Над проектом работал

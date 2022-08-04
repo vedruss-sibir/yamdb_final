@@ -4,7 +4,8 @@ from django.conf.urls import url
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
-from django.views.generic import TemplateView
+
+# from django.views.generic import TemplateView
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -41,7 +42,7 @@ schema_view = get_schema_view(
     openapi.Info(
         title="Cats API",
         default_version="v1",
-        description="Документация для приложения api_yamdb проекта yamdb_final",
+        description="Документация для прил. api_yamdb проекта yamdb_final",
         # terms_of_service="URL страницы с пользовательским соглашением",
         contact=openapi.Contact(email="andre33_3@rambler.ru"),
         license=openapi.License(name="BSD License"),

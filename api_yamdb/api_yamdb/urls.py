@@ -8,7 +8,7 @@ urlpatterns = [
     path("api/", include("api.urls")),
     path(
         "redoc/",
-        TemplateView.as_view(template_name="api_yamdb\static\redoc.html"),
+        TemplateView.as_view(template_name="/app/templates/redoc.html"),
         name="redoc",
     ),
 ]

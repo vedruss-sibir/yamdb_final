@@ -23,7 +23,7 @@ schema_view = get_schema_view(
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Cats API",
+        title="yamdb_final",
         default_version="v1",
         description="Документация для прил. api_yamdb проекта yamdb_final",
         # terms_of_service="URL страницы с пользовательским соглашением",

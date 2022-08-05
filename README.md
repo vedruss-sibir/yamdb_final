@@ -52,13 +52,12 @@ CI и CD проекта api_yamdb
   - Ресурс genres: жанры произведений. Одно произведение может быть привязано к нескольким жанрам.
   - Ресурс reviews: отзывы на произведения. Отзыв привязан к определённому произведению.
   - Ресурс comments: комментарии к отзывам. Комментарий привязан к определённому отзыву.
--
 
 - ### В репозитории на Гитхабе добавьте данные в Settings - Secrets - Actions secrets
 
-   DOCKER_USERNAME - имя пользователя в DockerHub
-   DOCKER_PASSWORD - пароль пользователя в DockerHub
-   HOST - ip-адрес сервера
+  - DOCKER_USERNAME - имя пользователя в DockerHub
+  - DOCKER_PASSWORD - пароль пользователя в DockerHub
+  - HOST - ip-адрес сервера
    USER - пользователь
    SSH_KEY - приватный ssh-ключ (публичный должен быть на сервере)
    PASSPHRASE - кодовая фраза для ssh-ключа
@@ -72,8 +71,6 @@ CI и CD проекта api_yamdb
    DB_NAME - postgres (по умолчанию)
    POSTGRES_USER - postgres (по умолчанию)
    POSTGRES_PASSWORD - postgres (по умолчанию)
-
--
 
 - ## Как запустить проект на сервере
 
@@ -102,12 +99,8 @@ docker-compose exec web python manage.py createsuperuser
 
 Проект развернут на сервере и доступен по адресу:
 
-```
-http://51.250.108.41/admin
-http://51.250.108.41/redoc
-
--
-
+<http://51.250.108.41/admin>
+<http://51.250.108.41/redoc>
 
 ## Над проектом работал
 

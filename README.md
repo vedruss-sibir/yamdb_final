@@ -58,19 +58,19 @@ CI и CD проекта api_yamdb
   - DOCKER_USERNAME - имя пользователя в DockerHub
   - DOCKER_PASSWORD - пароль пользователя в DockerHub
   - HOST - ip-адрес сервера
-   USER - пользователь
-   SSH_KEY - приватный ssh-ключ (публичный должен быть на сервере)
-   PASSPHRASE - кодовая фраза для ssh-ключа
-   DB_ENGINE - django.db.backends.postgresql
-   DB_HOST - db
-   DB_PORT - 5432
-   SECRET_KEY - секретный ключ приложения django (необходимо чтобы были экранированы или отсутствовали скобки)
-   ALLOWED_HOSTS - список разрешённых адресов
-   TELEGRAM_TO - id своего телеграм-аккаунта (можно узнать у @userinfobot, команда /start)
-   TELEGRAM_TOKEN - токен бота (получить токен можно у @BotFather, /token, имя бота)
-   DB_NAME - postgres (по умолчанию)
-   POSTGRES_USER - postgres (по умолчанию)
-   POSTGRES_PASSWORD - postgres (по умолчанию)
+  - USER - пользователь
+  - SSH_KEY - приватный ssh-ключ (публичный должен быть на сервере)
+  - PASSPHRASE - кодовая фраза для ssh-ключа
+  - DB_ENGINE - django.db.backends.postgresql
+  - DB_HOST - db
+  - DB_PORT - 5432
+  - SECRET_KEY - секретный ключ приложения django (необходимо чтобы были экранированы или отсутствовали скобки)
+  - ALLOWED_HOSTS - список разрешённых адресов
+  - TELEGRAM_TO - id своего телеграм-аккаунта (можно узнать у @userinfobot, команда /start)
+  - TELEGRAM_TOKEN - токен бота (получить токен можно у @BotFather, /token, имя бота)
+  - DB_NAME - postgres (по умолчанию)
+  - POSTGRES_USER - postgres (по умолчанию)
+  - POSTGRES_PASSWORD - postgres (по умолчанию)
 
 - ## Как запустить проект на сервере
 

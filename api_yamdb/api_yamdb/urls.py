@@ -6,21 +6,6 @@ from drf_yasg import openapi
 from rest_framework import permissions
 
 # from django.views.generic import TemplateView
-
-schema_view = get_schema_view(
-    openapi.Info(
-        title="Cats API",
-        default_version="v1",
-        description="Документация для приложения cats проекта Kittygram",
-        # terms_of_service="URL страницы с пользовательским соглашением",
-        contact=openapi.Contact(email="admin@kittygram.ru"),
-        license=openapi.License(name="BSD License"),
-    ),
-    public=True,
-    permission_classes=(permissions.AllowAny,),
-)
-
-
 schema_view = get_schema_view(
     openapi.Info(
         title="yamdb_final",
@@ -31,7 +16,7 @@ schema_view = get_schema_view(
         license=openapi.License(name="BSD License"),
     ),
     public=True,
-    permission_classes=(permissions.AllowAny,),
+    permission_classes=(permissions.AllowAny),
 )
 
 urlpatterns = [

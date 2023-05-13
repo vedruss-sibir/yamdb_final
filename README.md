@@ -31,11 +31,14 @@ CI и CD проекта api_yamdb
 
 - ### Самостоятельная регистрация новых пользователей
 
-  - Пользователь отправляет POST-запрос с параметрами email и username на эндпоинт /api/v1/auth/signup/.
+  - Пользователь отправляет POST-запрос с параметрами email и username на эндпоинт 
+    ```
+    /api/v1/auth/signup/.
+    ```
   - Сервис YaMDB отправляет письмо с кодом подтверждения (confirmation_code) на указанный адрес email.
-  - Пользователь отправляет POST-запрос с параметрами username и confirmation_code на эндпоинт /api/v1/auth/token/, в ответе на запрос ему приходит token (JWT-токен).
+  - Пользователь отправляет POST-запрос с параметрами username и confirmation_code на эндпоинт ```/api/v1/auth/token/```, в ответе на запрос ему приходит token (JWT-токен).
   - В результате пользователь получает токен и может работать с API проекта, отправляя этот токен с каждым запросом.
-  - После регистрации и получения токена пользователь может отправить PATCH-запрос на эндпоинт /api/v1/users/me/ и заполнить поля в своём профайле (описание полей — в документации).
+  - После регистрации и получения токена пользователь может отправить PATCH-запрос на эндпоинт ``` /api/v1/users/me/ ``` и заполнить поля в своём профайле (описание полей — в документации).
 
 - ### Создание пользователя администратором
 
@@ -75,34 +78,35 @@ CI и CD проекта api_yamdb
 - ## Как запустить проект на сервере
 
 Установите Docker и Docker-compose:
-
-sudo apt install docker.io
-sudo apt install docker-compose
-
+```sudo apt install docker.io
+   sudo apt install docker-compose
+```
 Проверьте корректность установки Docker-compose:
-
-sudo  docker-compose --version
-Создайте папку nginx:
-
-mkdir nginx
+```sudo  docker-compose --version
+```
+Создайте папку nginx: 
+```mkdir nginx
+```
 После успешного деплоя:
 Соберите статические файлы (статику):
-
+```
 docker-compose exec web python manage.py collectstatic --no-input
+```
 Примените миграции:
-
+```
 docker-compose exec web python manage.py makemigrations
 docker-compose exec web python manage.py migrate --noinput
+```
 Создайте суперпользователя:
-
+```
 docker-compose exec web python manage.py createsuperuser
-
+```
 Проект развернут на сервере и доступен по адресу:
-
+```
 <http://51.250.108.41/admin>
 <http://51.250.108.41/redoc>
-
-## Над проектом работал
+```
+### Над проектом работал
 
 Андрей Стрельников
 ***

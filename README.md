@@ -78,14 +78,19 @@ CI и CD проекта api_yamdb
 - ## Как запустить проект на сервере
 
 Установите Docker и Docker-compose:
-```sudo apt install docker.io
-   sudo apt install docker-compose
+```
+sudo apt install docker.io
+sudo apt install docker-compose
+   
 ```
 Проверьте корректность установки Docker-compose:
-```sudo  docker-compose --version
+
+```
+sudo  docker-compose --version
 ```
 Создайте папку nginx: 
-```mkdir nginx
+```
+mkdir nginx
 ```
 После успешного деплоя:
 Соберите статические файлы (статику):

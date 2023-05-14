@@ -106,10 +106,10 @@ docker-compose exec web python manage.py migrate --noinput
 ```
 docker-compose exec web python manage.py createsuperuser
 ```
-Проект развернут на сервере и доступен по адресу:
+Проект  доступен по адресу:
 ```
-<http://51.250.108.41/admin>
-<http://51.250.108.41/redoc>
+<http://IP Server/admin>
+<http://IP Server/redoc>
 ```
 ### Над проектом работал
 
